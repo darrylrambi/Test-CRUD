@@ -29,7 +29,7 @@
 
             <!-- Submit Button -->
             <div class="d-flex flex-column justify-content-center">
-                <button type="button" id="submitBtn" class="btn btn-primary">Masuk</button>
+                <button type="submit" id="submitBtn" class="btn btn-primary">Masuk</button>
             </div>
         </form>
 
@@ -74,11 +74,11 @@
         $("#userForm").submit(function (event) {
             event.preventDefault(); // Prevent default form submission behavior
 
-            const email = $("#emailInput").val(); // Get email input value
-            const password = $("#passwordInput").val(); // Get password input value
+            const email = $("#inputEmail").val(); // Get email input value
+            const password = $("#inputPassword").val(); // Get password input value
 
             $.ajax({
-                url: "handler.php", // Backend script to handle form submission
+                url: "handle.php", // Backend script to handle form submission
                 type: "POST",
                 data: {
                     email: email,
