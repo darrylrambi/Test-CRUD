@@ -70,6 +70,31 @@
 
             fetchUsers(); // Load users when the page loads
 
+            // Handle form submission for creating a user
+        $("#createUserForm").submit(function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            const email = $("#emailInput").val(); // Get email input value
+            const password = $("#passwordInput").val(); // Get password input value
+
+            $.ajax({
+                url: "handler.php", // Backend script to handle form submission
+                type: "POST",
+                data: {
+                    email: email,
+                    password: password
+                },
+                success: function (response) {
+                    alert(response); // Display response message
+                    $("#createUserForm")[0].reset(); // Reset the form
+                    fetchUsers(); // Refresh the user list
+                },
+                error: function () {
+                    alert("Failed to create user.");
+                }
+            });
+        });
+
             // Handle Delete button click
             $(document).on("click", ".deleteBtn", function () {
                 const userEmail = $(this).data("email"); // Get the user ID from the button
@@ -90,6 +115,7 @@
                 }
             });
         });
+        
     </script>
 </body>
 
