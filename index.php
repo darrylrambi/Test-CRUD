@@ -71,7 +71,7 @@
             fetchUsers(); // Load users when the page loads
 
             // Handle form submission for creating a user
-        $("#createUserForm").submit(function (event) {
+        $("#userForm").submit(function (event) {
             event.preventDefault(); // Prevent default form submission behavior
 
             const email = $("#emailInput").val(); // Get email input value
